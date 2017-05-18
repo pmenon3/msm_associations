@@ -28,7 +28,7 @@
       <dd>
         <% Movie.where(:director_id => Director.find_by(:name=> @director.name)).each do |movie|  %>
 
-        <%= movie.title %>
+        <li><%= movie.title %></li>
 
         <% end %>
       </dd>
@@ -103,11 +103,12 @@
 
             <!-- Label and input for director_id -->
             <div class="form-group">
-              <label for="director_id" class="control-label">
-                Director
-              </label>
 
-              <input type="text" id="director_id" name="director_id" placeholder="Name" type="hidden" class="form-control" value="<%= @director.id %>">
+          <input type="hidden" id="director_id" name="director_id" placeholder="Director" class="form-control" value="<%= @director.id %>" >
+
+
+
+
             </div>
 
             <button class="btn btn-success">

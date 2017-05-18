@@ -22,7 +22,7 @@
 
         </td>
         <td>
-          <%= Actor.find_by(:id => character.actor_id).name %>
+          <%= Actor.find(character.actor_id).name %>
         </td>
         <td><%= character.name %></td>
         <td>

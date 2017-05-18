@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @character.errors.any? %>
-  <% @character.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @character.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -24,7 +24,9 @@
           Movie
         </label>
 
-        <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @character.movie_id %>">
+        <%= select_tag("movie_id", options_from_collection_for_select(Movie.all, :id, :title, @character.movie_id), :class => "form-control") %>
+
+        <!-- <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @character.movie_id %>"> -->
       </div>
 
       <!-- Label and input for actor_id -->
@@ -50,6 +52,31 @@
       </button>
       or
       <a href="/characters">Cancel</a>
+
+      <p>
+        Don't see your movie in the list? Add it
+        <a href="http://localhost:3000/movies/new">
+          here
+        </a>
+        .
+      </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </form>
   </div>
 </div>
